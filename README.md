@@ -8,16 +8,15 @@ Installing
 Put the widget directory in apps\basic\vendor\yiisoft
 
 To autoloading classes of widget you need add alias in extensions.php which is located in apps\basic\vendor\yiisoft
-return array(
-  ...
+
   array (
     'name' => 'yiisoft/yii2-poll',
     'alias' =>
         array (
             '@pollext/poll' => $vendorDir . '/yiisoft/yii2-poll',
             )
-      );
-    
+      )
+  
 That's all. The widget uses mysql database. But you do not need to create tables. Widget itself will create all the necessary tables in your database.
 
 Usage 
