@@ -9,7 +9,6 @@ Put the widget directory in apps\basic\vendor\yiisoft
 
 To autoloading classes of widget you need add alias in extensions.php which is located in apps\basic\vendor\yiisoft
 
-...
 array (
   'name' => 'yiisoft/yii2-poll',
   'alias' =>
@@ -17,6 +16,7 @@ array (
           '@pollext/poll' => $vendorDir . '/yiisoft/yii2-poll',
           ),
     )
+    
 That's all
 
 Usage 
@@ -26,7 +26,7 @@ At first, import widget classes in view file where you want create poll
 use pollext\poll\Poll;
 Then invoke the widget and specify the name of the poll and the response options
 
-<?php 
+
         echo Poll::widget([
                 'pollName'=>'Do you like PHP?',
                 'answerOptions'=>
@@ -35,11 +35,11 @@ Then invoke the widget and specify the name of the poll and the response options
                     'No',
                 ],
             ]); 
-    ?>
+    
     
 That's all. You will see poll with standard parameters. But you can set your parameters. You can change max width of lines, color, height and background color for lines.
 
-<?php 
+
         echo Poll::widget([
                 'pollName'=>'Do you like PHP?',
                 'answerOptions'=>
@@ -56,7 +56,6 @@ That's all. You will see poll with standard parameters. But you can set your par
  
                 ]
             ]); 
-    ?>
     
 So, now you can fast and easy create the polls
 
