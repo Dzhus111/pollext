@@ -1,5 +1,5 @@
 {
-    "name": "pollext/yii2-poll",
+    "name": "pollext/poll",
     "description": "Widget to create custom polls for Yii 2.0 framework",
     "keywords": ["yii2", "poll", "widget", "poll-widget", "yii2-poll-widget"],
     "type": "yii2-extension",
