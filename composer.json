@@ -19,6 +19,6 @@
         "yiisoft/yii2": "*"
     },
     "autoload": {
-        "psr-4": { "pollext\\poll\\": "" }
+        "psr-4": { "pollext\\": "" }
     }
 }
