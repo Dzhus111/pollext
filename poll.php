@@ -14,7 +14,7 @@
             'linesColor'=>'#4F9BC7'
         );
         
-        private $pollName='Вы за меня?';
+        private $pollName='';
         public $answerOptions=array();
         private $answerOptionsData;
         private $pollData;
