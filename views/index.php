@@ -70,11 +70,11 @@
 </style>
 <div class="poll" style="width:<?php echo $params['maxLineWidth']+55;?>px;" >
 <?php  echo "<div style=\"max-width:".$params['maxLineWidth']."px; word-wrap: break-word; margin-bottom: 10px; font-size:12pt; font-weight:bold;\">".$pollData['poll_name']."</div>";?>
-
-<?php if((Yii::$app->user->getId()==null && $_POST['pollStatus']!='show' && $isVote == false ) || ($_POST['nameOfPoll']==$pollData['poll_name'] && $_POST['pollStatus']=='vote'&& $_POST['pollStatus']!='show' && Yii::$app->user->getId()==null)){
+<?php $pullName = (isset($_POST['nameOfPoll']) ? $_POST['nameOfPoll'] : '';?>
+<?php if((Yii::$app->user->getId()==null && $_POST['pollStatus']!='show' && $isVote == false ) || ($pullName==$pollData['poll_name'] && $_POST['pollStatus']=='vote'&& $_POST['pollStatus']!='show' && Yii::$app->user->getId()==null)){
     echo "Sign in to vote";
 }?>
-    <?php if(($isVote == false && Yii::$app->user->getId()!=null && $_POST['pollStatus']!='show') || ($_POST['nameOfPoll']==$pollData['poll_name'] && $_POST['pollStatus']=='vote'&& $_POST['pollStatus']!='show' && Yii::$app->user->getId()!=null)){?>
+    <?php if(($isVote == false && Yii::$app->user->getId()!=null && $_POST['pollStatus']!='show') || ($pullName==$pollData['poll_name'] && $_POST['pollStatus']=='vote'&& $_POST['pollStatus']!='show' && Yii::$app->user->getId()!=null)){?>
             
                 <?php echo Html::beginForm('#', 'post', ['class'=>'uk-width-medium-1-1 uk-form uk-form-horizontal']); ?>
                 
@@ -99,7 +99,7 @@
             }
        
     ?>
-    <?php if(($isVote == false && $_POST['pollStatus']!='show') || (Yii::$app->user->getId()==null && $_POST['pollStatus']!='show') || ($_POST['nameOfPoll']==$pollData['poll_name'] && $_POST['pollStatus']=='vote'&& $_POST['pollStatus']!='show')){?>
+    <?php if(($isVote == false && $_POST['pollStatus']!='show') || (Yii::$app->user->getId()==null && $_POST['pollStatus']!='show') || ($pullName==$pollData['poll_name'] && $_POST['pollStatus']=='vote'&& $_POST['pollStatus']!='show')){?>
    <form method="POST" action="" class="support_forms">
    <input type="hidden" name="nameOfPoll" value="<?=$pollData['poll_name']?>"/>
    <input type="hidden" name="pollStatus" value="show"/>
@@ -118,7 +118,7 @@
                 ?>
    </form>
     <?php }?>
-    <?php if($isVote == true || ($_POST['nameOfPoll']==$pollData['poll_name'] && $_POST['pollStatus']=='show') ){?> 
+    <?php if($isVote == true || ($pullName==$pollData['poll_name'] && $_POST['pollStatus']=='show') ){?> 
         <?php 
             for($i = 0; $i<count($answersData); $i++){ 
                 $voicesPer = 0;
